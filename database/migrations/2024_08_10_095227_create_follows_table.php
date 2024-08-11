@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('follows', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('reviewer_id');
             $table->morphs('followable');
             $table->timestamps();
         });
