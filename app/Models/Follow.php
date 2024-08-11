@@ -11,7 +11,6 @@ class Follow extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'reviewer_id',
         'followable_id',
         'followable_type',
     ];
@@ -20,8 +19,8 @@ class Follow extends Model
         return $this->morphTo();
     }
 
-    public function user(): BelongsTo
+    public function reviewer(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Reviewer::class);
     }
 }
