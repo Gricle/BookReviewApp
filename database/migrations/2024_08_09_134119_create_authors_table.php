@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('authors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('nationality');
+            $table->date('birth_date');
             $table->softDeletes();
             $table->timestamps();
         });

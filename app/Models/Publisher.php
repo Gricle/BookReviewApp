@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 class Publisher extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'address',
+    ];
 
 
     public function user()

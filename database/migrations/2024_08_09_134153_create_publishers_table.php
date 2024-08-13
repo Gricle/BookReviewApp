@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('publishers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->text('address');
             $table->softDeletes();
             $table->timestamps();
         });

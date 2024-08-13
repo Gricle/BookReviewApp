@@ -10,8 +10,10 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 class Author extends Model
 {
     use HasFactory,SoftDeletes;
+
     protected $fillable = [
-        'user_id',
+        'nationality',
+        'birth_date',
     ];
 
     public function user()
