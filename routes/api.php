@@ -35,5 +35,14 @@ Route::prefix('publisher')->group(function () {
     ->middleware('auth:sanctum');
     Route::put('/{id}', [PublisherController::class, 'update'])
     ->middleware('auth:sanctum');
-
+});
+Route::prefix('books')->group(function ()  {
+    Route::post('/', [BookController::class, 'store'])
+    ->middleware('auth:sanctum');
+    Route::get('/', [BookController::class, 'index']);
+    Route::get('/{id}', [BookController::class, 'show']);
+    Route::delete('/{id}', [BookController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+    Route::put('/{id}', [BookController::class, 'update'])
+    ->middleware('auth:sanctum');
 });

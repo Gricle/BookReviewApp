@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\books;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -11,7 +11,7 @@ class UpdateBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,7 @@ class UpdateBookRequest extends FormRequest
     {
         return [
             'name' =>'required',
-            'publisher_id' => 'required',
+            // 'publisher_id' => 'required',
             'author_id' => 'required',
             'language' => 'required|string',
             'release_date' => 'date',
