@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api;
 use App\Http\Controllers\Api\AuthorController;
-
+use App\Http\Controllers\Api\BookController;
+use App\Http\Controllers\Api\PublisherController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -25,4 +26,14 @@ Route::prefix('authors')->group(function () {
     ->middleware('auth:sanctum');
     Route::put('/{id}', [AuthorController::class, 'update'])
     ->middleware('auth:sanctum');
+});
+Route::prefix('publisher')->group(function () {
+    Route::post('/', [PublisherController::class, 'store']);
+    Route::get('/', [PublisherController::class, 'index']);
+    Route::get('/{id}', [PublisherController::class, 'show']);
+    Route::delete('/{id}', [PublisherController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+    Route::put('/{id}', [PublisherController::class, 'update'])
+    ->middleware('auth:sanctum');
+
 });

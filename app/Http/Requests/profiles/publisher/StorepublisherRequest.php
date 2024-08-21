@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\profiles\publisher;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,6 +22,12 @@ class StorepublisherRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'first_name' => 'required|string|min:3',
+            'last_name' => 'nullable|string|min:3',
+            'password' => 'required|min:3|max:255',
+            'phone' => 'nullable',
+            'email' => 'required|email',
+            'picture' => 'nullable|string',
             'address' => 'nullable|string|min:3'
         ];
     }
