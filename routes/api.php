@@ -6,6 +6,8 @@ use App\Http\Controllers\Api;
 use App\Http\Controllers\Api\AuthorController;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\PublisherController;
+use App\Http\Controllers\Api\CommentController;
+use App\Http\Controllers\Api\ReviewerController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -44,5 +46,24 @@ Route::prefix('books')->group(function ()  {
     Route::delete('/{id}', [BookController::class, 'destroy'])
     ->middleware('auth:sanctum');
     Route::put('/{id}', [BookController::class, 'update'])
+    ->middleware('auth:sanctum');
+});
+Route::prefix('comments')->group(function ()  {
+    Route::post('/', [CommentController::class, 'store'])
+    ->middleware('auth:sanctum');
+    Route::get('/', [CommentController::class, 'index']);
+    Route::get('/{id}', [CommentController::class, 'show']);
+    Route::delete('/{id}', [CommentController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+    Route::put('/{id}', [CommentController::class, 'update'])
+    ->middleware('auth:sanctum');
+});
+Route::prefix('reviewer')->group(function () {
+    Route::post('/', [ReviewerController::class, 'store']);
+    Route::get('/', [ReviewerController::class, 'index']);
+    Route::get('/{id}', [ReviewerController::class, 'show']);
+    Route::delete('/{id}', [ReviewerController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+    Route::put('/{id}', [ReviewerController::class, 'update'])
     ->middleware('auth:sanctum');
 });
