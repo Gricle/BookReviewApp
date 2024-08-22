@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('language');
             $table->string('release_date');
             $table->string('translator');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

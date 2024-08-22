@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('reviewer_id');
             $table->morphs('followable');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
