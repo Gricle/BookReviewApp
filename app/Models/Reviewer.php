@@ -20,14 +20,14 @@ class Reviewer extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function follow(): MorphMany
+    public function follow(): HasMany
     {
-        return $this->morphMany(Follow::class,'followable');
+        return $this->hasMany(Follow::class);
     }
     
-    public function rating(): MorphMany
+    public function rating(): HasMany
     {
-        return $this->morphMany(Rating::class,'rateable');
+        return $this->hasMany(Rating::class);
     }
 
     public function comment(): HasMany

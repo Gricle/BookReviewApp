@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('follows', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('reviewer_id');
+            $table->foreignId('reviewer_id')->constrained()->cascadeOnDelete();
             $table->morphs('followable');
             $table->timestamps();
             $table->softDeletes();

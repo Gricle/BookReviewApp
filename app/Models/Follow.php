@@ -15,7 +15,8 @@ class Follow extends Model
         'followable_id',
         'followable_type',
     ];
-    public function commentable(): MorphTo
+
+    public function followable(): MorphTo
     {
         return $this->morphTo();
     }
