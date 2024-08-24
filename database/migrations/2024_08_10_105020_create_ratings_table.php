@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('reviewer_id')->constrained()->cascadeOnDelete();
-            $table->integer('rating');
+            $table->integer('score');
             $table->morphs('rateable');
             $table->softDeletes();
             $table->timestamps();
