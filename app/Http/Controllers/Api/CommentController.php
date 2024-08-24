@@ -15,10 +15,11 @@ class CommentController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $comments = Comment::all();
-        return $comments;
+    {    
+        $comment = Comment::with(['reviewer'])->get();
+        return CommentResource::collection($comment);
     }
+    /**
 
  
     /**
@@ -26,9 +27,7 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        // Get the authenticated user (assuming the user is a reviewer)
         $reviewer = $request->user()->reviewer;
-        // Create the comment
         $comment = $reviewer->comment()->create($request->validated());
     
         return new CommentResource($comment);
