@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\PublisherController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\ReviewerController;
+use App\Http\Controllers\Api\FollowController;
+use App\Http\Controllers\Api\RatingController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -66,4 +68,23 @@ Route::prefix('reviewer')->group(function () {
     ->middleware('auth:sanctum');
     Route::put('/{id}', [ReviewerController::class, 'update'])
     ->middleware('auth:sanctum');
+});
+Route::prefix('follow')->group(function ()  {
+    Route::post('/', [FollowController::class, 'store'])
+    ->middleware('auth:sanctum');
+    Route::get('/', [FollowController::class, 'index']);
+    Route::get('/{id}', [FollowController::class, 'show']);
+    Route::delete('/{id}', [FollowController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+});
+Route::prefix('rate')->group(function () {
+    Route::post('/', [RatingController::class, 'store'])
+    ->middleware('auth:sanctum');
+    Route::get('/', [RatingController::class, 'index']);
+    Route::get('/{id}', [RatingController::class, 'show']);
+    Route::delete('/{id}', [RatingController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+    Route::put('/{id}', [RatingController::class, 'update'])
+    ->middleware('auth:sanctum');
+    Route::get('/avg/{id}', [RatingController::class, 'getAverage']);
 });
