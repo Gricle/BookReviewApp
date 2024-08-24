@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Rating;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -11,20 +11,19 @@ class StoreratingRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return true; 
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
+
     public function rules(): array
     {
         return [
-            'rating' => 'required|integer|min:1|max:5',
+            'score' => 'required|integer|min:1|max:10',
             'rateable_id' => 'required|integer',
-            'rateable_type' => 'required|string|in:Books,Publisher',
+            'rateable_type' => 'required|string|in:' . implode(',', [
+                \App\Models\Book::class,
+                \App\Models\Publisher::class,
+            ]),
         ];
     }
 }
