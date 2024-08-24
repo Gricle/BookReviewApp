@@ -4,14 +4,14 @@ namespace App\Enum;
 
 enum CommentableTypeEnum: string
 {
-    case Books = '1';
-    case Publishers = '2';
+    case Books = 'book';
+    case Publishers = 'publisher';
 
     public static function fromValue(string $value): ?self
     {
         return match ($value) {
-            '1' => self::Books,
-            '2' => self::Publishers,
+            'book' => self::Books,
+            'publisher' => self::Publishers,
             default => null,
         };
     }
