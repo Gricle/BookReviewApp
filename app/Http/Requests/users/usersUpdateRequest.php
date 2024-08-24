@@ -27,7 +27,8 @@ class usersUpdateRequest extends FormRequest
             'password' => 'required',
             'phone' => 'nullable',
             'email' => 'required|email',
-            'picture' => 'nullable|string'
+            'picture' => 'nullable|string',
+            'birth_date' => 'nullable|date',
         ];
     }
 }
