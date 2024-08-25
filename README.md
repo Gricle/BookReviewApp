@@ -40,9 +40,11 @@ To set up the BookReview Laravel App on your local machine, follow these steps:
        cd bookreview-laravel
     ```
 2. Install Dependencies:
-  ``` composer install ```
+  ```
+  composer install
+  ```
 
-3. Set Up Environment:
+4. Set Up Environment:
   ```
      Copy the .env.example file to .env:
      cp .env.example .env
@@ -65,10 +67,14 @@ To set up the BookReview Laravel App on your local machine, follow these steps:
     php artisan key:generate
    ```
 6. Run Migrations:
-   ``` php artisan migrate ```
+   ```
+    php artisan migrate
+    ```
 
-7. Start the Development Server:
-   ``` php artisan serve ```
+8. Start the Development Server:
+   ```
+    php artisan serve
+    ```
 
 Now, you can access the application at http://localhost:8000.
 
