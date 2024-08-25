@@ -35,46 +35,45 @@ To set up the BookReview Laravel App on your local machine, follow these steps:
 ### Steps
 
 1. Clone the Repository:
-    ```
-       git clone https://github.com/gricle/bookreview-laravel.git
-       cd bookreview-laravel
-    ```
+```
+git clone https://github.com/gricle/bookreview-laravel.git
+cd bookreview-laravel
+```
 2. Install Dependencies:
-  ```
-  composer install
-  ```
+```
+composer install
+```
 
 4. Set Up Environment:
-  ```
-     Copy the .env.example file to .env:
-     cp .env.example .env
-
-  ```
+```
+Copy the .env.example file to .env:
+cp .env.example .env
+```
 
 4. Configure Database:
    - Update your .env file with your database credentials:
-     ```
-     DB_CONNECTION=mysql
-     DB_HOST=127.0.0.1
-     DB_PORT=3306
-     DB_DATABASE=yourdatabase
-     DB_USERNAME=yourusername
-     DB_PASSWORD=yourpassword
-     ```
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=yourdatabase
+DB_USERNAME=yourusername
+DB_PASSWORD=yourpassword
+```
 
 5. Generate Application Key:
-   ```
-    php artisan key:generate
-   ```
+```
+php artisan key:generate
+```
 6. Run Migrations:
-   ```
-    php artisan migrate
-    ```
+```
+php artisan migrate
+```
 
 8. Start the Development Server:
-   ```
-    php artisan serve
-    ```
+```
+php artisan serve
+```
 
 Now, you can access the application at http://localhost:8000.
 
